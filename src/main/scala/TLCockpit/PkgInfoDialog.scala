@@ -20,6 +20,8 @@ import scalafx.scene.input.MouseEvent
 import scalafx.scene.paint.Color
 
 class PkgInfoDialog(tlp: TLPackage) extends Dialog {
+
+  val pkg = tlp.name
   val dialog = new Dialog() {
     initOwner(stage)
     title = s"Package Information for $pkg"
@@ -55,7 +57,6 @@ class PkgInfoDialog(tlp: TLPackage) extends Dialog {
   }
 
   var crow = 0
-  val pkg = tlp.name
   crow = do_one("package", pkg, crow)
   crow = do_one("category", tlp.category, crow)
   crow = do_one("shortdesc", tlp.shortdesc.getOrElse(""), crow)
